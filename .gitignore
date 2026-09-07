@@ -1,0 +1,20 @@
+# Arduino build output and local tooling
+build/
+**/build/
+.arduinoIDE/
+*.elf
+*.hex
+*.eep
+*.bin
+*.map
+
+# OpenMV / MicroPython caches and editor state
+__pycache__/
+*.py[cod]
+.openmvide/
+.vscode/
+.idea/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
