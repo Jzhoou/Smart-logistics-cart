@@ -1,6 +1,6 @@
 # 智能物流搬运小车下位机控制系统
 
-这是一个团队协作完成的智能物流小车项目。本仓库重点展示我负责的**下位机电控部分**：Arduino 端的任务调度、底盘与执行机构控制，以及与扫码器、串口屏、HWT101 姿态传感器和 OpenMV 视觉模块之间的串口通信。机械结构、上位机或其他团队成员负责的内容不作为本仓库的个人贡献声明。
+这是一个团队协作完成的智能物流小车项目。本仓库重点展示我负责的**下位机电控部分**：Arduino 端的任务调度、底盘与执行机构控制，以及与扫码器、串口屏、HWT101 姿态传感器和 OpenMV 视觉模块之间的串口通信。**本人也参与了部分机械建模工作**，机械结构由团队协作完成；上位机及其他团队成员独立负责的内容不作为本人的个人贡献声明。
 
 ## 仓库目录
 
@@ -88,10 +88,10 @@ Smart-logistics-cart/
 - `张大头电机/`：电机及驱动外壳的 STEP 模型与配套 PNG 图片。
 - `大疆机甲大师DJI RoboMast1(110mm的，实际是100mm)/`：配套麦克纳姆轮模型。
 
-使用 SolidWorks 打开装配体时，请保留完整模型目录，以便查找配套零件。第三方部件模型保留原文件名，本目录作为团队项目配套资料归档，不改变前述个人贡献范围说明。
+使用 SolidWorks 打开装配体时，请保留完整模型目录，以便查找配套零件。机械建模由团队协作完成，**本人参与了其中的部分工作**。本目录归档项目配套模型，第三方部件模型保留原文件名。
 
 ## English summary
 
-This team project implements an intelligent logistics cart. This repository highlights my contribution to the **low-level electrical control system**: Arduino-side task orchestration, chassis and actuator control, and serial integration with a barcode/QR scanner, display, HWT101 attitude sensor, and an OpenMV camera.
+This team project implements an intelligent logistics cart. **I was responsible for the low-level electrical control system and also contributed to part of the mechanical CAD modeling.** The mechanical design was developed collaboratively by the team. My electrical-control work covers Arduino-side task orchestration, chassis and actuator control, and serial integration with a barcode/QR scanner, display, HWT101 attitude sensor, and an OpenMV camera.
 
 The OpenMV MicroPython script detects red, green, and blue targets and reports classification and image offsets. The Arduino program parses the scanned task, coordinates pickup, color-based handling, temporary storage, and return movements, and controls the servo-driven gripper and motor drivers. Motion distances, angles, pulse counts, servo positions, ROIs, and color thresholds are specific to the original vehicle and require recalibration for other hardware or environments.
