@@ -58,6 +58,16 @@
 
 代码中的行驶距离、转角、脉冲数、舵机位置、延时、图像 ROI、颜色阈值及视觉中心偏移均依赖原车的机械尺寸、相机安装、光照、电机与驱动器设置。这些数值必须在目标车辆上重新标定。更换底盘、轮胎、减速比、摄像头位置或现场照明后，应从低速和短距离测试开始，逐项确认方向、限位和安全间隙。
 
+## 机械建模文件
+
+[`模型/`](模型/) 保存项目配套的机械建模资料，保留原有文件名与子目录结构。
+
+- `总装配体.SLDASM`：SolidWorks 总装配体；配套零件文件为 `.SLDPRT`，工程图为 `.SLDDRW`。
+- `张大头电机/`：电机及驱动外壳的 STEP 模型与配套 PNG 图片。
+- `大疆机甲大师DJI RoboMast1(110mm的，实际是100mm)/`：配套麦克纳姆轮模型。
+
+使用 SolidWorks 打开装配体时，请保留完整模型目录，以便查找配套零件。第三方部件模型保留原文件名，本目录作为团队项目配套资料归档，不改变前述个人贡献范围说明。
+
 ## English summary
 
 This team project implements an intelligent logistics cart. This repository highlights my contribution to the **low-level electrical control system**: Arduino-side task orchestration, chassis and actuator control, and serial integration with a barcode/QR scanner, display, HWT101 attitude sensor, and an OpenMV camera.
