@@ -2,6 +2,28 @@
 
 这是一个团队协作完成的智能物流小车项目。本仓库重点展示我负责的**下位机电控部分**：Arduino 端的任务调度、底盘与执行机构控制，以及与扫码器、串口屏、HWT101 姿态传感器和 OpenMV 视觉模块之间的串口通信。机械结构、上位机或其他团队成员负责的内容不作为本仓库的个人贡献声明。
 
+## 仓库目录
+
+```text
+Smart-logistics-cart/
+├── README.md                 # 项目介绍、目录说明与使用方法
+├── 程序/
+│   ├── total/                # Arduino 多文件工程
+│   │   ├── total.ino         # 主程序入口
+│   │   └── 其他 .ino 文件    # 电机、传感器、舵机与通信模块
+│   └── openmv.py             # OpenMV 视觉识别程序
+└── 模型/                     # SolidWorks 模型、工程图、STEP 与参考图片
+```
+
+- [程序目录](程序/)：下位机控制与 OpenMV 视觉源码。
+- [建模目录](模型/)：整车装配体、零件和配套机械资料。
+
+## 使用入口
+
+1. 下载完整仓库后，使用 Arduino IDE 打开 [`程序/total/total.ino`](程序/total/total.ino)，同目录的其他 `.ino` 文件共同组成该工程。请保留 `total` 文件夹名与 `total.ino` 主文件名一致。
+2. 使用 OpenMV IDE 打开 [`程序/openmv.py`](程序/openmv.py)，按摄像头实际连接配置运行或部署。
+3. 使用 SolidWorks 打开 [`模型/总装配体.SLDASM`](模型/总装配体.SLDASM)，保留模型目录及其子目录以便加载配套零件。
+
 ## 系统概览
 
 主控程序采用 Arduino 多文件工程组织。`total.ino` 完成外设初始化并串联整车任务；其余 `.ino` 文件按传感、通信、运动和机械动作拆分。OpenMV 端运行 MicroPython 脚本，通过颜色阈值提取色块，把颜色类别与目标偏移量封装为串口数据交给 Arduino。
@@ -33,15 +55,15 @@
 
 | 文件 | 作用 |
 | --- | --- |
-| `total.ino` | Arduino 工程入口；定义串口、全局状态和整车任务流程 |
-| `Motor.ino` | 底盘电机协议命令、方向动作、区域间路线和姿态/视觉微调 |
-| `HWT101.ino` | HWT101 初始化、数据帧接收校验与航向角解析 |
-| `scan.ino` | 扫码字符串接收、终止符处理与任务数据解析 |
-| `screen_Serial.ino` | 串口屏初始化与任务文本显示 |
-| `servo.ino` | 物料盘、伸缩机构和夹爪舵机控制 |
-| `Step_catch.ino` | 取放步骤、颜色顺序判断及加工区/暂存区动作编排 |
-| `openmv.ino` | Arduino 端 OpenMV 数据包接收与偏移量解析 |
-| `openmv.py` | OpenMV 端 MicroPython 颜色识别和串口数据发送 |
+| [`程序/total/total.ino`](程序/total/total.ino) | Arduino 工程入口；定义串口、全局状态和整车任务流程 |
+| [`程序/total/Motor.ino`](程序/total/Motor.ino) | 底盘电机协议命令、方向动作、区域间路线和姿态/视觉微调 |
+| [`程序/total/HWT101.ino`](程序/total/HWT101.ino) | HWT101 初始化、数据帧接收校验与航向角解析 |
+| [`程序/total/scan.ino`](程序/total/scan.ino) | 扫码字符串接收、终止符处理与任务数据解析 |
+| [`程序/total/screen_Serial.ino`](程序/total/screen_Serial.ino) | 串口屏初始化与任务文本显示 |
+| [`程序/total/servo.ino`](程序/total/servo.ino) | 物料盘、伸缩机构和夹爪舵机控制 |
+| [`程序/total/Step_catch.ino`](程序/total/Step_catch.ino) | 取放步骤、颜色顺序判断及加工区/暂存区动作编排 |
+| [`程序/total/openmv.ino`](程序/total/openmv.ino) | Arduino 端 OpenMV 数据包接收与偏移量解析 |
+| [`程序/openmv.py`](程序/openmv.py) | OpenMV 端 MicroPython 颜色识别和串口数据发送 |
 
 ## 硬件与软件环境
 
